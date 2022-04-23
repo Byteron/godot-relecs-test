@@ -10,11 +10,17 @@ namespace RelEcs.Godot
 
     public interface IDeinitSystem : ISystem { }
 
+    // wraps a godot node into an ecs component
     public struct Node<T> where T : Node
     {
         public T Value;
-        public Node(T node) => Value = node;
+        public Node(T value) => Value = value;
     }
 
-    public class Marshallable<T> : Reference { public T Object { get; set; } }
+    // wraps an ecs object into a godot variant
+    public class Marshallable<T> : Reference
+    {
+        public T Value;
+        public Marshallable(T value) => Value = value;
+    }
 }

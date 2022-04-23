@@ -8,7 +8,7 @@ namespace RelEcs.Godot
 
         public void ConvertToEntity(Marshallable<World> world)
         {
-            Entity = world.Object.Spawn().Add(new Node<EcsEntity2D>(this));
+            Entity = world.Value.Spawn().Add(new Node<EcsEntity2D>(this));
 
             foreach (var child in GetChildren())
             {

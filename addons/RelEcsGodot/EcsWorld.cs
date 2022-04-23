@@ -32,7 +32,7 @@ namespace RelEcs.Godot
         {
             world.AddResource(new Time { Delta = 0f });
 
-            PropagateCall("ConvertToEntity", new Array { new Marshallable<World> { Object = world } });
+            PropagateCall("ConvertToEntity", new Array { new Marshallable<World>(world) });
 
             foreach(var child in GetChildren())
             {
