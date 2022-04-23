@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/ControlSystem.cs" type="Script" id=1]
+[ext_resource path="res://src/Player.cs" type="Script" id=2]
+[ext_resource path="res://addons/RelEcsGodot/EcsEntity2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/RelEcsGodot/EcsWorld.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://src/PrintSystem.cs" type="Script" id=7]
+
+[node name="Test" type="Node2D"]
+
+[node name="EcsWorld" parent="." instance=ExtResource( 4 )]
+
+[node name="PrintSystem" type="Node" parent="EcsWorld"]
+script = ExtResource( 7 )
+
+[node name="ControlSystem" type="Node" parent="EcsWorld"]
+script = ExtResource( 1 )
+speed = 922
+
+[node name="EcsEntity2D" parent="EcsWorld" instance=ExtResource( 3 )]
+
+[node name="Player" type="Node" parent="EcsWorld/EcsEntity2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="EcsWorld/EcsEntity2D"]
+texture = ExtResource( 5 )
